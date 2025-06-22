@@ -1,0 +1,99 @@
+/* main.css */
+
+/* Sizning bazaviy (responsive bo'lmagan) CSS kodlaringiz bu yerda bo'ladi */
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    align-items: center;
+}
+
+.quran-player {
+    width: 800px;
+    margin: 30px auto;
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.upper_quran_player {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.upper_quran_player .listen_quran_text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+.upper_quran_player select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.surah-info {
+    font-size: 1rem;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.controls button {
+    background-color: #29d33c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*.modal-content {*/
+/*    background-color: white;*/
+/*    border-radius: 10px;*/
+/*    padding: 25px;*/
+/*    max-width: 600px;*/
+/*    margin: auto;*/
+/*}*/
+
+/*.filters {*/
+/*    display: flex;*/
+/*    gap: 20px;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*}*/
+
+/*.filter-btns select {*/
+/*    padding: 8px;*/
+/*    border-radius: 5px;*/
+/*    border: 1px solid #ccc;*/
+/*}*/
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #1b1b1b;
+    color: white;
+}
+
+.footer-bottom {
+    padding: 10px;
+    background-color: #111;
+    color: #ccc;
+    text-align: center;
+}
+
+/* Boshqa umumiy stillar ham shu faylga yoziladi */

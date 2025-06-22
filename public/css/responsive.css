@@ -1,0 +1,220 @@
+/* responsive.css */
+
+/* Laptop (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .nav-links {
+        font-size: 12px;
+        gap: 5px;
+    }
+
+    .quran-player {
+        width: 90vw;
+        margin: 15px auto;
+    }
+
+    .upper_quran_player {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 15px;
+        margin-bottom: 10px;
+    }
+
+    .upper_quran_player .listen_quran_text {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .upper_quran_player select {
+        min-width: 180px;
+        width: 100%;
+    }
+
+    .upper_quran_player .selectors {
+        flex-direction: column;
+        gap: 7px;
+        width: 100%;
+        padding: 10px 15px;
+    }
+
+    .surah-info {
+        max-height: 250px;
+        font-size: 0.95rem;
+        overflow-y: auto;
+    }
+
+    .controls {
+        flex-direction: row;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+    }
+
+    .controls button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .modal-content .filters {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .modal-content .filters .filter-btns {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .filter-btns select {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+    .quran-player {
+        width: 95vw;
+        padding: 15px;
+    }
+
+    .quran-player h3 {
+        font-size: 22px;
+    }
+
+    .upper_quran_player {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .upper_quran_player .bookmark {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .surah-info {
+        max-height: 220px;
+        font-size: 0.9rem;
+    }
+
+    .controls {
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #1b1b1b;
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.4s ease;
+    }
+
+    .nav-links.show {
+        max-height: fit-content;
+        opacity: 1;
+        transform: translateY(0);
+        padding: 10px 20px;
+    }
+
+    .nav-links a {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links.show a {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .btn-contact {
+        margin-top: 10px;
+    }
+
+    .hero-container,
+    .info-section,
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .modal-content {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-bottom {
+        text-align: center;
+    }
+}
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .quran-player {
+        width: 100vw;
+        padding: 10px;
+    }
+
+    .quran-player h3 {
+        font-size: 20px;
+    }
+
+    .surah-info {
+        max-height: 200px;
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+
+    .controls {
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 30px;
+    }
+
+    .controls button {
+        font-size: 0.85rem;
+        padding: 6px 8px;
+    }
+
+    .close-modal {
+        font-size: 1.2rem;
+    }
+
+    .saved-ayahs-modal button.remove {
+        font-size: 0.9rem;
+    }
+
+    .info-tooltip {
+        left: auto;
+        right: 0;
+        transform: translateX(0) translateY(100%);
+        min-width: 180px;
+    }
+}

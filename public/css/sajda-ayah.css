@@ -1,0 +1,172 @@
+/* Jadvalning asosiy xujayra dizayni */
+.sajda-container {
+    margin-bottom: 100px;
+    padding-top: 90px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 15px;
+}
+
+.section-title {
+    font-size: 1.9rem;
+    color: #29d33c;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: #ccc;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+#sajda-table {
+    width: 100%;
+    font-family: "Times New Roman", sans-serif;
+    border-collapse: collapse;
+}
+
+#sajda-table tbody tr {
+    cursor: pointer;
+}
+
+#sajda-table tr:hover td{
+    color: #29d33c;
+}
+
+/*.table-wrapper {*/
+/*    max-height: 70vh;*/
+/*    overflow-y: auto;*/
+/*}*/
+
+/*.table-wrapper::-webkit-scrollbar {*/
+/*    width: 6px;*/
+/*}*/
+
+/*.table-wrapper::-webkit-scrollbar-thumb {*/
+/*    background-color: #29d33c;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+#sajda-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #1b1b1b; /* fon rangi jadvalga mos bo‘lsin */
+    z-index: 2;
+    border-bottom: 1px solid #444;
+}
+
+#sajda-table td,
+#sajda-table th {
+    vertical-align: middle;
+    text-align: center;
+    padding: 10px;
+}
+
+/* ▼ Tugma */
+.toggle-btn {
+    background: none;
+    border: none;
+    color: #63E6BE;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.toggle-btn:hover {
+    color: #29d33c;
+}
+
+.toggle-btn i {
+    transition: transform 0.3s ease;
+}
+
+.toggle-btn.active i {
+    transform: rotate(180deg);
+}
+
+/* Yashirin satr animatsiyasi */
+.detail-row {
+    display: none;
+    background-color: #1b1b1b;
+}
+
+.detail-row.active {
+    display: table-row;
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Ichki tafsilot dizayni */
+.detail-row td {
+    padding: 15px 20px;
+    background: #1b1b1b;
+}
+
+.detail-row .detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.detail-row img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    filter: brightness(1.2) invert(1) contrast(1.5); /* Oq ko‘rinish */
+}
+
+/* Matn va audio */
+.detail-row .detail-text {
+    font-size: 1rem;
+    color: #eee;
+    text-align: center;
+}
+
+.detail-row audio {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 10px;
+    outline: none;
+}
+
+/* Jadval responsive holat */
+@media (max-width: 768px) {
+    .detail-row .detail-text {
+        font-size: 0.95rem;
+    }
+
+    .toggle-btn {
+        font-size: 1.1rem;
+    }
+
+    .detail-row audio {
+        max-width: 100%;
+    }
+
+    #sajda-table td,
+    #sajda-table th {
+        padding: 8px 6px;
+    }
+}
+
+
+
+

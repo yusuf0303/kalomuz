@@ -1,0 +1,219 @@
+/* quran-player.css */
+
+.quran-player {
+    text-align: center;
+    padding: 20px;
+    width: 60vw;
+    max-height: 520px;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.upper_quran_player {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.upper_quran_player .bookmark, .upper_quran_player .selectors {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.upper_quran_player .bookmark button {
+    font-size: 25px;
+    background-color: transparent;
+    padding: 10px 15px;
+    /*border-radius: 6px;*/
+    cursor: pointer;
+    transition: background 0.3s;
+    border: 0px;
+}
+
+.upper_quran_player .bookmark button:hover {
+    transform: scale(1.1);
+}
+
+.upper_quran_player .selectors select {
+    padding: 10px 14px;
+    font-size: 1rem;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background-color: #1b1b1b;
+    color: #ffffff;
+    min-width: 200px;
+}
+
+/*.upper_quran_player .selectors .selectSurah::-webkit-scrollbar {*/
+/*    width: 6px;*/
+/*}*/
+
+/*.upper_quran_player .selectors .selectSurah::-webkit-scrollbar-thumb {*/
+/*    background-color: #29d33c;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+.upper_quran_player .selectors select:focus {
+    border-color: #63E6BE;
+    box-shadow: 0 0 0 2px rgba(99, 230, 190, 0.2);
+}
+
+.upper_quran_player .listen_quran_text {
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+
+.quran-player h3 {
+    font-size: 28px;
+    color: #29d33c;
+    width: 100%;
+    margin: 0%;
+}
+
+
+.surah-info {
+    /*max-height: 320px;*/
+    overflow-y: auto;
+    padding-right: 10px;
+    padding-left: 5px;
+    border: 1px solid #444;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-radius: 8px;
+    background-color: #1b1b1b;
+    color: #fff;
+}
+
+.sajda-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #1e2f1e;
+    color: #63E6BE;
+    border: 1px solid #29d33c;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 5px rgba(41, 211, 60, 0.3);
+    animation: fadeIn 0.9s ease forwards;
+    transition: all 0.5s ease;
+    white-space: nowrap;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.selectors {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-container {
+    position: relative;
+}
+
+.info-icon {
+    font-size: 1.2rem;
+    color: #29d33c;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.info-icon:hover {
+    color: #63E6BE;
+}
+
+.info-tooltip {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    background: #1b1b1b;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 10px;
+    min-width: 220px;
+    display: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.info-container:hover .info-tooltip {
+    display: block;
+}
+
+.info-tooltip ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-tooltip li {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+.info-tooltip li:last-child {
+    margin-bottom: 0;
+}
+
+.surah-info::-webkit-scrollbar {
+    width: 6px;
+}
+
+.surah-info::-webkit-scrollbar-thumb {
+    background-color: #29d33c;
+    border-radius: 10px;
+}
+
+.quran-player .down-part {
+    display: flex;
+    flex-direction: column;
+    max-height: 420px;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.quran-player .down-part .audio-content {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.quran-player .down-part .audio-content .audio-screen {
+    width: 80%;
+    max-width: 700px;
+}
+
+.controls button {
+    margin: 0 10px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: transparent;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.controls button:hover {
+    background-color: #3a9f43aa;
+}

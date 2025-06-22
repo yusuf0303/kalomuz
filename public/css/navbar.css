@@ -1,0 +1,218 @@
+/* navbar.css */
+
+/* Fixed navbar */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: #1b1b1b;
+    padding: 10px 30px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo a img {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #d4af7f;
+    border-radius: 50%;
+    background-color: #121212;
+}
+
+.logo a span {
+    font-size: 2.1rem;
+    color: #f5f5dc;
+    font-weight: bold;
+}
+
+.logo a span:hover {
+    color: gold;
+    transition: ease-in 0.2s;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a {
+    transition: all 0.3s ease;
+}
+
+.nav-links a:not(:nth-child(6)) {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 5px;
+}
+
+.nav-links a.active {
+    color: #29d33c;
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #29d33c;
+}
+
+.btn-logout {
+    padding: 10px 16px!important;
+    /*border-bottom-color: transparent!important;*/
+}
+
+.btn-logout:hover {
+    border-bottom: 1px solid #29d33c!important;
+    color: #29d33c;
+}
+.nav-links a:not(.active):not(:nth-child(2)):hover {
+    border-bottom: 2px solid #29d33c;
+    padding-bottom: 5px;
+    color: #29d33c;
+}
+
+.btn-contact {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+/*.user-profile-name {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 8px; !* Ikonka va ism orasidagi masofa *!*/
+/*    padding: 6px 12px;*/
+/*    background: #f3f6fc;*/
+/*    border-radius: 999px;*/
+/*    box-shadow: 0 1px 4px 0 rgba(44,62,80,0.05);*/
+/*    transition: background 0.2s;*/
+/*    font-size: 1rem;*/
+/*}*/
+
+/*.user-profile-name:hover {*/
+/*    background: #e6f0fa;*/
+/*}*/
+
+/*.user-profile-name .fa-user {*/
+/*    font-size: 1.25em;*/
+/*    color: #2563eb; !* Tailwind blue-600 *!*/
+/*}*/
+
+/*.user-profile-name .username {*/
+/*    font-weight: 600;*/
+/*    color: #2563eb;*/
+/*    letter-spacing: 0.01em;*/
+/*    font-size: 1rem;*/
+/*    !* So‘ralsa, harflarning bo‘shliqlari *!*/
+/*    !* text-shadow: 0 1px 1px rgba(0,0,0,0.05); *!*/
+/*}*/
+
+/*.user-profile-name:hover .fa-user,*/
+/*.user-profile-name:hover .username {*/
+/*    color: #29d33c;*/
+/*    cursor: pointer;*/
+/*}*/
+
+
+.user-profile-dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 9999!important;
+}
+
+.user-profile-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: #f3f6fc;
+    border-radius: 999px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+}
+
+.user-profile-name:hover {
+    background: #e6f0fa;
+}
+
+.profile-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    min-width: 190px;
+    margin-top: 10px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px 0 rgba(44,62,80,0.15);
+    padding: 12px 0;
+    z-index: 9999!important;
+    animation: fadeIn .19s;
+}
+.profile-menu.active {
+    display: block;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px);}
+    to   { opacity: 1; transform: translateY(0);}
+}
+.profile-menu a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #34495e;
+    padding: 8px 18px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.13s;
+    font-weight: 500;
+}
+.profile-menu a.logout-btn {
+    color: #f44336;
+    font-weight: 600;
+}
+.profile-menu a:hover {
+    background: #f1f5fb;
+    color: #2563eb;
+}
+.profile-menu hr {
+    border: none;
+    border-top: 1px solid #e3e8ee;
+    margin: 7px 0 6px 0;
+}

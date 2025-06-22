@@ -1,0 +1,41 @@
+/* base.css */
+
+/* Make scrolling smooth */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Body and layout setup */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    /*padding-top: 70px; !* Adjust based on navbar height *!*/
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+html, body {
+    /*height: 100%;*/
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #29d33c;
+    border-radius: 10px;
+}
+
+.page-content {
+    flex: 1;
+}

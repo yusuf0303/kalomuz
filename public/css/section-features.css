@@ -1,0 +1,77 @@
+.features-section {
+    background: #0d0d0d;
+    padding: 60px 50px;
+    position: sticky;
+    color: #f5f5f5;
+}
+
+.features-section h2 {
+    margin-top: 10px;
+    font-size: 2.5rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(300px, 4fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: #111;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 0 transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card-content-over {
+    text-decoration: none;
+}
+
+.card-content-over:hover .fa-chevron-right{
+    transform: translateX(10px);
+    transition-duration: 1s;
+}
+
+.card-content-over:hover .green-text{
+    color: green;
+    transition-duration: 1s;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/*.card:hover {*/
+/*    transform: translateY(-20px);*/
+/*    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);*/
+/*}*/
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.card-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #aaa;
+}
+
+.green-text {
+    color: #29d33c;
+}
