@@ -1,7 +1,7 @@
 <header class="fixed-header">
     <div class="navbar">
         <div class="logo">
-            <a href="index">
+            <a href="/">
                 <img src="images/brandlogo/KalomUzLogoTransparent.png" alt="KalomUz Logo" />
                 <span>KalomUz📖</span>
             </a>
