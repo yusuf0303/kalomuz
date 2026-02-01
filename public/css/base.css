@@ -8,6 +8,7 @@ html {
 /* Body and layout setup */
 body {
     margin: 0;
+    background: #333;
     font-family: 'Segoe UI', sans-serif;
     /*padding-top: 70px; !* Adjust based on navbar height *!*/
 }

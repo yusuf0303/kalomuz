@@ -112,6 +112,16 @@
     transition: background-color 0.3s, color 0.3s;
 }
 
+.dropdown-menu {
+    background: transparent;
+    color: green;
+}
+
+.dropdown-header {
+    color: green;
+    filter: brightness(2.5) contrast(1.5);
+}
+
 
 /*.user-profile-name {*/
 /*    display: flex;*/

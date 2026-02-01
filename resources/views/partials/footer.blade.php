@@ -1,4 +1,4 @@
-<footer class="site-footer">
+<footer id="footer-side" class="site-footer">
     <div class="footer-content">
         <div class="footer-left">
             <h3>KALOMUZ📖</h3>
@@ -11,10 +11,9 @@
             </ul>
         </div>
         <div class="footer-right">
-            <a href="https://instagram.com" target="_blank" class="footer-icon"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com" target="_blank" class="footer-icon"><i class="fab fa-youtube"></i></a>
-            <a href="https://t.me" target="_blank" class="footer-icon"><i class="fab fa-telegram"></i></a>
-            <a href="https://t.me" target="_blank" class="footer-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com/kalomuz" target="_blank" class="footer-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@KalomUz" target="_blank" class="footer-icon"><i class="fab fa-youtube"></i></a>
+            <a href="https://t.me/KalomUzBot" target="_blank" class="footer-icon"><i class="fab fa-telegram"></i></a>
         </div>
     </div>
     <div class="footer-bottom">

@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('no-footer')
+@endsection
+
 @section('content')
     <div class="bg-image-overlay"></div>
     <div class="login-bg-kalomuz">

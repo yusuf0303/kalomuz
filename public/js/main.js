@@ -1,3 +1,13 @@
+// Loader
+window.addEventListener('load', function () {
+    const loader = document.getElementById('custom-loader');
+    if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => loader.style.display = 'none', 300);
+    }
+});
+
+
 // === NAVIGATION MENU ===
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
@@ -124,7 +134,7 @@ async function loadAyah(ayahNumber) {
     await loadSurahNames();
     selectAyah.disabled = false;
     try {
-        const response = await fetch(`http://api.alquran.cloud/v1/ayah/${ayahNumber}/ar.alafasy`);
+        const response = await fetch(`https://api.alquran.cloud/v1/ayah/${ayahNumber}/ar.alafasy`);
         const data = await response.json();
         if (data.status === "OK") {
             const surahNumber = data.data.surah.number;
@@ -150,7 +160,8 @@ async function loadAyah(ayahNumber) {
             audio.src = data.data.audio;
             audio.load();
 
-            // Arabcha matnni DOMga chiqarish (agar mavjud bo‘lsa)
+	    // Arabcha matnni DOMga chiqarish (agar mavjud bo‘lsa)
+            const arabicText = data.data.text;
             const ayahArabicEl = document.getElementById("ayah-arabic");
             if (ayahArabicEl) ayahArabicEl.textContent = arabicText;
 
@@ -257,34 +268,40 @@ audio?.addEventListener("ended", () => {
         loadAyah(currentAyah);
     }
 });
-// Oyat saqlashda:
-saved?.addEventListener("click", () => {
-    if (lastLoadedAyah) {
-        let savedAyahs = getSavedAyahs();
-        const exists = savedAyahs.some(item =>
-            item.surah === lastLoadedAyah.surah && item.ayah === lastLoadedAyah.verse
-        );
-        if (!exists) {
-            savedAyahs.push({
-                surah: lastLoadedAyah.surah,
-                ayah: lastLoadedAyah.verse,
-                ayahImage: lastLoadedAyah.ayahImage,
-                text: ayahInfo.textContent,       // Tarjima
-                sajda: lastLoadedAyah.sajda,
-                audio: lastLoadedAyah.audio
-            });
+// Oyat saqlashda
+document.getElementById("saved").addEventListener("click", function () {
+    if (!lastLoadedAyah) return;
 
-            saved.style.color = "red";
+    fetch("/save-ayah", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+        },
+        body: JSON.stringify({
+            surah: lastLoadedAyah.surah,
+            ayah: lastLoadedAyah.verse,
+            image: lastLoadedAyah.ayahImage,
+            text: ayahInfo.textContent,
+            sajda: lastLoadedAyah.sajda,
+            audio: lastLoadedAyah.audio
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            alert("Oyat saqlandi!");
         } else {
-            savedAyahs = savedAyahs.filter(item =>
-                !(item.surah === lastLoadedAyah.surah && item.ayah === lastLoadedAyah.verse)
-            );
-            saved.style.color = "white";
+            alert("Xatolik: " + data.message);
         }
-        localStorage.setItem("savedAyahs", JSON.stringify(savedAyahs));
-    }
-    renderSavedAyahs();
+    })
+    .catch(err => {
+        console.error("Saqlashda xatolik:", err);
+        alert("Saqlashda muammo yuz berdi.");
+    });
 });
+
+
 
 // saved?.addEventListener("click", () => {
 //     if (lastLoadedAyah) {

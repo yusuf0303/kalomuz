@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuranQuizController;
 use App\Http\Controllers\SajdaAyahController;
 use App\Http\Controllers\LoginPageController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SavedAyahController;
 //use App\Http\Controllers\UserProfileController;
 
 /*
@@ -22,6 +24,8 @@ Route::get('/index', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/sajda-oyatlari', [SajdaAyahController::class, 'show'])->name('sajda.ayahs');
 
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
 Route::get('/profile', function() {
     return 'User profilingiz bu yerda chiqadi!';
 })->name('profile');
@@ -30,6 +34,11 @@ Route::get('/saved-ayahs', function() {
     return 'Saqlagan oyatlaringiz bu yerda chiqadi!';
 })->name('saved.ayahs');
 
+Route::middleware(['auth'])->group(function () {
+    Route::post('/save-ayah', [App\Http\Controllers\SavedAyahController::class, 'store']);
+    Route::get('/saved-ayahs', [SavedAyahController::class, 'index']);
+    Route::delete('/saved-ayahs/{id}', [SavedAyahController::class, 'destroy']);
+});
 
 // Auth routes (bir marta)
 Auth::routes();

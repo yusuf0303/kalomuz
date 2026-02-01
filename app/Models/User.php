@@ -20,6 +20,12 @@ class User extends Authenticatable
         'name', 'last_name', 'email', 'phone', 'password',
     ];
 
+    public function savedAyahs()
+    {
+        return $this->hasMany(\App\Models\SavedAyah::class);
+    }
+
+
     /**
      * The attributes that should be hidden for arrays.
      *

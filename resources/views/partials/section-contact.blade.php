@@ -24,7 +24,7 @@
                 <div class="form-check mb-3">
                     <input class="form-check-input" type="checkbox" id="agree" name="agree" required>
                     <label class="form-check-label" for="agree">
-                        I allow this website to store my submission so they can respond to my inquiry. *
+                        Men ushbu veb-saytga mening so'rovlarimga javob berishlari uchun mening taqdimotimni saqlashga roziman. *
                     </label>
                 </div>
                 <button type="submit" class="btn btn-success px-4">YUBORISH</button>
@@ -85,3 +85,4 @@
         </div>
     </div>
 </section>
+
