@@ -180,3 +180,45 @@
 }
 
 /* Boshqa umumiy stillar ham shu faylga yoziladi */
+
+/* Mosque Selector & Select Styles */
+.form-select.glass-morphism {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+    cursor: pointer;
+}
+
+.form-select.glass-morphism option {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.form-select.glass-morphism:focus {
+    box-shadow: 0 0 0 0.25rem rgba(46, 204, 113, 0.25);
+    border-color: #2ecc71 !important;
+}
+
+.mosque-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mosque-item:hover {
+    background: rgba(46, 204, 113, 0.1);
+    border-color: #2ecc71;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.mosque-list-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.mosque-list-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
