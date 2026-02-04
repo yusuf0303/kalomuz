@@ -15,15 +15,15 @@ class CreateSavedAyahsTable extends Migration
     {
         Schema::create('saved_ayahs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->integer('surah');
             $table->integer('ayah');
-            $table->string('image')->nullable();
-            $table->text('text')->nullable();
+            $table->string('ayah_image')->nullable();
+            $table->text('text')->nullable(); // Tarjima
             $table->boolean('sajda')->default(false);
             $table->string('audio')->nullable();
             $table->timestamps();
         });
-
     }
 
     /**

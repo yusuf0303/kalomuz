@@ -3,19 +3,30 @@
     <div class="modal-content">
         <button class="close-modal" id="closeSaved">&times;</button>
         <div class="filters">
-            <h3>
-                <i class="fa-sharp fa-solid fa-heart" style="color: red;"></i> Saqlangan oyatlar
-            </h3>
-            <div class="filter-btns">
-                <select name="filter" id="filter">
-                    <option value="surah-asc">Sura raqami (o‘sish)</option>
-                    <option value="surah-desc">Sura raqami (kamayish)</option>
-                    <option value="recent-last">Oxirgi qo‘shilganlar (yangi)</option>
-                    <option value="recent-first">Birinchi qo‘shilganlar (eski)</option>
-                    <option value="ayah-asc">Oyat raqami (o‘sish)</option>
-                    <option value="ayah-desc">Oyat raqami (kamayish)</option>
-                </select>
-                <i id="removeAll" class="fa-solid fa-trash fa-xl" style="color: red; cursor: pointer;"></i>
+            <div class="modal-title">
+                <i class="fa-sharp fa-solid fa-heart-pulse title-icon"></i>
+                <h3>Saqlangan Oyatlar</h3>
+            </div>
+            <div class="filter-controls">
+                <!-- Custom Filter Dropdown -->
+                <div class="custom-dropdown" id="filter-dropdown">
+                    <div class="dropdown-trigger" id="filter-trigger">
+                        <i class="fa-solid fa-filter icon-sm"></i>
+                        <span class="selected-text">Saralash</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown-options" id="filter-options">
+                        <div class="dropdown-option" data-value="surah-asc">Sura raqami (o‘sish)</div>
+                        <div class="dropdown-option" data-value="surah-desc">Sura raqami (kamayish)</div>
+                        <div class="dropdown-option" data-value="recent-last">Oxirgi qo‘shilganlar</div>
+                        <div class="dropdown-option" data-value="recent-first">Birinchi qo‘shilganlar</div>
+                        <div class="dropdown-option" data-value="ayah-asc">Oyat raqami (o‘sish)</div>
+                        <div class="dropdown-option" data-value="ayah-desc">Oyat raqami (kamayish)</div>
+                    </div>
+                </div>
+                <button id="removeAll" class="btn-clear-all" title="Barchasini o'chirish">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
             </div>
         </div>
         <div class="modal-content-scrolling">

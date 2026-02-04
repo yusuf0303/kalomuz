@@ -11,61 +11,77 @@
         </div>
 
         <!-- O'ng qism: audio player -->
-        <div class="hero-audio">
-            <!-- <img src="images/backgroundpics/prayer_times.png" alt="Qur'on rasmi" /> -->
-            <div class="quran-player">
-                <div class="upper_quran_player">
-		    <div class="bookandlisten">
-                        <div class="bookmark">
-                            <button id="saved_list"><i class="fa-regular fa-bookmark" style="color: #63E6BE;"></i></button>
-                        </div>
-                        <div class="listen_quran_text">
-                            <h3><marquee behavior="" direction="left">Qur'on tinglang</marquee></h3>
-                        </div>
-		    </div>
-                    <div class="selectors">
-                        <select name="select-surah" id="selectSurah">
-                            <option value="" disabled selected>Sura tanlang</option>
-                        </select>
-
-                        <select name="selectAyah" id="selectAyah" disabled>
-                            <option value="" disabled selected>Oyat tanlang</option>
-                        </select>
-
-                        <!-- Info icon va tooltip -->
-                       <!-- <div class="info-container">
-                            <i class="fa-solid fa-circle-info info-icon"></i>
-                            <div class="info-tooltip">
-                                <ul id="surah-info-list">
-                                    <li>Loading...</li>
-                                </ul>
+            <div class="quran-player-wrapper">
+                <div class="quran-player">
+                    <div class="player-header">
+                        <div class="header-left">
+                            <button id="saved_list" class="btn-icon" title="Saqlanganlar">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+                            <div class="player-title">
+                                <h3>Qur'on Tinglang</h3>
                             </div>
-                        </div> -->
+                        </div>
+                        <div class="header-right">
+                            <div class="info-container">
+                                <i class="fa-solid fa-circle-info info-icon"></i>
+                                <div class="info-tooltip">
+                                    <ul id="surah-info-list">
+                                        <li>Yuklanmoqda...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="down-part">
-                    <div class="surah-info">
-                        <img id="ayah-image" src="" alt="Oyat rasmi" style="filter: brightness(1.2) invert(1) contrast(1.5); transition: filter 0.3s ease; max-width: 100%; border-radius: 8px; margin-bottom: 15px; display: none;"/>
-                        <span id="sajda-indicator" class="sajda-badge" style="display: none;">🧎‍♂️ Sajda oyati</span>
-                        <p id="ayah-info">Yuklanmoqda...</p>
+
+                    <div class="player-selectors">
+                        <div class="custom-dropdown" id="surah-dropdown">
+                            <div class="dropdown-trigger" id="surah-trigger">
+                                <span class="selected-text">Sura</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="dropdown-options" id="surah-options">
+                                <!-- JS populate -->
+                            </div>
+                        </div>
+                        <div class="custom-dropdown disabled" id="ayah-dropdown">
+                            <div class="dropdown-trigger" id="ayah-trigger">
+                                <span class="selected-text">Oyat</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="dropdown-options" id="ayah-options">
+                                <!-- JS populate -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="audio-content">
-                        <audio id="audio" controls class="audio-screen"></audio>
-                        <div class="controls">
-                            <button id="saved" title="Oyatni saqlash"><i class="fa-sharp fa-solid fa-heart"></i></button>
-                            <button id="prev"><i class="fa-sharp fa-solid fa-backward-step"></i></button>
-                            <button id="togglePlay"><i class="fa-sharp fa-solid fa-play"></i></button>
-                            <button id="next"><i class="fa-sharp fa-solid fa-forward-step"></i></button>
-                            <button id="repeat"><i class="fa-sharp fa-solid fa-repeat"></i></button>
+
+                    <div class="player-body">
+                        <div class="ayah-display">
+                            <img id="ayah-image" src="" alt="Oyat" class="ayah-img" style="display: none;"/>
+                            <div class="ayah-text-container">
+                                <span id="sajda-indicator" class="sajda-badge" style="display: none;">
+                                    <i class="fas fa-person-praying me-1"></i> Sajda
+                                </span>
+                                <p id="ayah-info" class="ayah-translation">Oyatni tanlang va tinglang...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="player-footer">
+                        <div class="audio-controls-wrapper">
+                            <audio id="audio"></audio>
+                            <div class="main-controls">
+                                <button id="saved" class="btn-control" title="Saqlash"><i class="fa-regular fa-heart"></i></button>
+                                <button id="prev" class="btn-control" title="Oldingi"><i class="fas fa-step-backward"></i></button>
+                                <button id="togglePlay" class="btn-play" title="Ijro/Pauza"><i class="fas fa-play"></i></button>
+                                <button id="next" class="btn-control" title="Keyingi"><i class="fas fa-step-forward"></i></button>
+                                <button id="repeat" class="btn-control" title="Takrorlash"><i class="fas fa-repeat"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-        </div>
 
     </div>
 </section>
-
-{{--<script src="public/js/main.js" defer></script>--}}
-{{--<script src="public/js/savedAyahsModal.js" defer></script>--}}

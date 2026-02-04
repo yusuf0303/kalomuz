@@ -20,14 +20,17 @@ class ContactController extends Controller
         $data['user_message'] = $data['message'];
         unset($data['message']);
 
-        Mail::send('emails.contact', $data, function($message) use ($data) {
-            $message->to('kalomuz.info@gmail.com')
-                ->subject('Yangi xabar: KalomUz kontakt formasi')
-                ->from('kalomuz.info@gmail.com', $data['name'])
-                ->replyTo($data['email'], $data['name']);
-        });
-
-        return back()->with('success', 'Xabaringiz yuborildi! Tez orada javob beramiz.');
+        try {
+            Mail::send('emails.contact', $data, function($message) use ($data) {
+                $message->to('kalomuz.info@gmail.com')
+                    ->subject('Yangi xabar: KalomUz kontakt formasi')
+                    ->from('kalomuz.info@gmail.com', $data['name'])
+                    ->replyTo($data['email'], $data['name']);
+            });
+            return back()->with('success', 'Xabaringiz yuborildi! Tez orada javob beramiz.');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Xabar yuborishda xatolik yuz berdi. Iltimos, keyinroq qayta urinib ko‘ring.')->withInput();
+        }
     }
 
 }

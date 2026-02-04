@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'KalomUz 📖') }}</title>
-        <link rel="icon" href="{{ secure_asset('images/brandlogo/KalomUzLogoTransparent.png') }}" type="image/png">
+        <link rel="icon" href="{{ asset('images/brandlogo/KalomUzLogoTransparent.png') }}" type="image/png">
 
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,31 +16,31 @@
 
 
         <!-- Custom Styles (Tartibli) -->
-        <link href="{{ secure_asset('css/base.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/animations.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/navbar.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/hero-section.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/section-info.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/section-features.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/section-contact.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/quran-player.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/quran-quiz.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/sajda-ayah.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/modal.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/footer.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/main.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/responsive.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/auth.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/base.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/animations.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/hero-section.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/section-contact.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/quran-player.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/quran-quiz.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/sajda-ayah.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/modal.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/auth.css') }}" rel="stylesheet">
     </head>
     <body>
-        <div id="app">
+        <div id="app" class="d-flex flex-column min-vh-100">
             <!-- Navbar (auth + guest) -->
             @include('partials.navbar')
 
-            <main class="py-4" style="padding-bottom: 0!important;">
-                @yield('content')
-            </main>
+            <div class="content-wrapper flex-grow-1">
+                <main class="py-4" style="padding-top: 100px!important; padding-bottom: 0!important;">
+                    @yield('content')
+                </main>
+            </div>
 
             @if (!View::hasSection('no-footer'))
                 @include('partials.footer')
@@ -52,13 +52,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
         <!-- Custom Scripts -->
-        <script src="{{ secure_asset('js/main.js') }}" defer></script>
-        <script src="{{ secure_asset('js/savedAyahModal.js') }}" defer></script>
-        <script src="{{ secure_asset('js/navbar.js') }}" defer></script>
-        <script src="{{ secure_asset('js/quran_quiz.js') }}" defer></script>
-        <script src="{{ secure_asset('js/sajda-ayah.js') }}" defer></script>
-        <script src="{{ secure_asset('js/surah-info.js') }}" defer></script>
+        <script src="{{ asset('js/main.js') }}" defer></script>
+        <script src="{{ asset('js/quran_quiz.js') }}" defer></script>
+        <script src="{{ asset('js/sajda-ayah.js') }}" defer></script>
         @stack('scripts')
-<script>document.addEventListener("DOMContentLoaded", function() { const mobileMenuBtn = document.querySelector(".hamburger"); const navbar = document.querySelector(".navbar"); if (mobileMenuBtn && navbar) { mobileMenuBtn.addEventListener("click", function() { navbar.classList.toggle("active"); }); } });</script>
     </body>
 </html>

@@ -8,9 +8,19 @@ html {
 /* Body and layout setup */
 body {
     margin: 0;
-    background: #333;
+    background: #121212 !important;
+    /* Force dark background */
+    color: #e0e0e0;
     font-family: 'Segoe UI', sans-serif;
-    /*padding-top: 70px; !* Adjust based on navbar height *!*/
+}
+
+.glass-morphism {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    transition: all 0.3s ease;
 }
 
 .page-wrapper {
@@ -19,7 +29,8 @@ body {
     min-height: 100vh;
 }
 
-html, body {
+html,
+body {
     /*height: 100%;*/
     min-height: 100vh;
     margin: 0;

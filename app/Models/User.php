@@ -17,12 +17,32 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'last_name', 'email', 'phone', 'password',
+        'name', 'last_name', 'username', 'email', 'phone', 'password',
     ];
 
     public function savedAyahs()
     {
         return $this->hasMany(\App\Models\SavedAyah::class);
+    }
+
+    public function notifications()
+    {
+        return $this->hasMany(\App\Models\Notification::class)->orderBy('created_at', 'DESC');
+    }
+
+    public function userMessages()
+    {
+        return $this->hasMany(\App\Models\UserMessage::class)->orderBy('created_at', 'DESC');
+    }
+
+    public function sentMessages()
+    {
+        return $this->hasMany(\App\Models\Message::class, 'sender_id');
+    }
+
+    public function receivedMessages()
+    {
+        return $this->hasMany(\App\Models\Message::class, 'receiver_id');
     }
 
 

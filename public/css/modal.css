@@ -1,4 +1,4 @@
-/* modal.css */
+/* modal.css - Premium Glassmorphism Redesign */
 
 .saved-ayahs-modal {
     display: none;
@@ -7,174 +7,318 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     z-index: 9999;
     justify-content: center;
     align-items: center;
+    animation: modalOverlayFade 0.3s ease;
+}
+
+@keyframes modalOverlayFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .modal-content {
-    background-color: #1b1b1b;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 700px;
-    width: 90%;
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 25px;
+    max-width: 600px;
+    /* Reduced from 800px for a more compact feel */
+    width: 92%;
     position: relative;
     color: #fff;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+    transform: scale(0.95);
+    opacity: 0;
+    animation: modalContentEntry 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-.modal-content .filters {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.modal-content .filters .filter-btns {
-    gap: 10px;
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-}
-
-.modal-content .modal-content-scrolling {
-    max-height: 70vh;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.modal-content-scrolling::-webkit-scrollbar {
-    display: none;
-}
-
-.saved-ayahs-modal h3 {
-    color: #29d33c;
-    font-size: 25px;
+@keyframes modalContentEntry {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .close-modal {
     position: absolute;
-    top: 15px;
+    top: 20px;
     right: 20px;
-    font-size: 1.5rem;
-    color: #fff;
-    background: none;
-    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
 }
 
-.saved-ayahs-modal ul {
+.close-modal:hover {
+    background: rgba(255, 75, 75, 0.15);
+    border-color: rgba(255, 75, 75, 0.3);
+    color: #ff4b4b;
+    transform: rotate(90deg);
+}
+
+/* Header & Filters */
+.modal-content .filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.modal-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-icon {
+    color: #29d33c;
+    font-size: 1.3rem;
+    filter: drop-shadow(0 0 8px rgba(41, 211, 60, 0.4));
+}
+
+.modal-title h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff 0%, #29d33c 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-clear-all {
+    background: rgba(255, 75, 75, 0.08);
+    border: 1px solid rgba(255, 75, 75, 0.2);
+    color: #ff6b6b;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-clear-all:hover {
+    background: rgba(255, 75, 75, 0.2);
+    border-color: #ff4b4b;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Scrolling Content */
+.modal-content-scrolling {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.modal-content-scrolling::-webkit-scrollbar {
+    width: 5px;
+}
+
+.modal-content-scrolling::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-content-scrolling::-webkit-scrollbar-thumb {
+    background: rgba(41, 211, 60, 0.25);
+    border-radius: 10px;
+}
+
+.modal-content-scrolling::-webkit-scrollbar-thumb:hover {
+    background: #29d33c;
+}
+
+/* Saved Item Cards */
+#savedAyahList {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.saved-ayahs-modal li {
-    padding: 10px;
-    margin-bottom: 10px;
-    background: #2a2a2a;
-    border-radius: 5px;
+.saved-ayah-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 18px;
+    padding: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    overflow: hidden;
 }
 
-.saved-ayahs-modal button.remove {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    background: transparent;
-    border: none;
-    color: #ff6b6b;
+.saved-ayah-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(41, 211, 60, 0.3);
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.surah-tag {
+    font-weight: 600;
+    color: #29d33c;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.item-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-action {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #eee;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.8rem;
 }
 
-.filter-btns select {
-    padding: 8px 12px;
-    border: 1px solid #444;
-    border-radius: 6px;
-    background-color: #222;
+.btn-action:hover {
+    background: rgba(255, 255, 255, 0.12);
     color: #fff;
-    font-size: 0.95rem;
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
-.filter-btns select:focus {
-    border-color: #29d33c;
-    outline: none;
+.btn-action.btn-remove:hover {
+    background: rgba(255, 75, 75, 0.15);
+    color: #ff4b4b;
+    border-color: rgba(255, 75, 75, 0.3);
 }
 
-/* MODAL umumiy qismi eski holatdagi kabi */
-
-/* ... (eski kod o‘zgarmaydi) ... */
-
-.saved-ayahs-modal li {
-    padding: 10px;
-    margin-bottom: 10px;
-    background: #2a2a2a;
-    border-radius: 5px;
-    position: relative;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.12);
-    transition: box-shadow .25s;
-}
-.saved-ayahs-modal li:hover {
-    box-shadow: 0 2px 18px rgba(41,211,60,0.16);
+.btn-expand {
+    font-family: inherit;
+    font-size: 0.85rem;
+    transition: transform 0.3s ease !important;
 }
 
-.saved-ayahs-modal button.remove {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    background: transparent;
-    border: none;
-    color: #ff6b6b;
-    cursor: pointer;
-    font-size: 1.25em;
+.dropdown-ayah-content {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: none;
+    flex-direction: column;
+    /* Ensure vertical stacking */
+    gap: 15px;
+    animation: slideDownFade 0.3s ease-out;
 }
 
-/* AYAH IMAGE uchun yangi stil */
+@keyframes slideDownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .saved-ayah-img {
     display: block;
-    margin: 0 auto 10px auto;
-    max-width: 100%;
-    max-height: 120px;
-    border-radius: 10px;
-    background: transparent;
-    object-fit: contain;
-    filter: invert(1) brightness(1.05) contrast(1.15);
-    border: none; /* <-- border ni olib tashlasa, kamroq chalg‘itadi */
-    box-shadow: none; /* yoki kichik shadow bersa bo‘ladi */
+    max-width: 95%;
+    height: auto;
+    margin: 0 auto;
+    filter: brightness(0) invert(1);
+    transition: all 0.3s ease;
 }
 
-/*.info-container-modal {*/
-/*    margin-right: 35px;*/
-/*}*/
-
-.sajda-icon {
-    margin-right: 35px;
-    animation: tada 1.2s;
-}
-@keyframes tada {
-    0%{transform:scale(1);}
-    10%{transform:scale(1.2) rotate(-7deg);}
-    20%{transform:scale(1.25) rotate(8deg);}
-    30%{transform:scale(1.1) rotate(-4deg);}
-    40%{transform:scale(1.05) rotate(2deg);}
-    100%{transform:scale(1);}
+.sajda-icon-sm {
+    color: #facc15;
+    font-size: 0.9rem;
+    filter: drop-shadow(0 0 5px rgba(250, 204, 21, 0.3));
 }
 
-/* Accordion/dropdown-content animatsiyasi */
-.dropdown-ayah-content {
-    padding: 6px 0 0 0;
-    animation: fadeIn 0.33s;
-}
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); animation-duration: 0.5s}
-    to   { opacity: 1; transform: translateY(0);}
+.ayah-text-preview {
+    color: #adb5bd;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+    text-align: center;
 }
 
-/* Responsive: kichik ekranlar uchun */
-@media (max-width: 500px) {
-    .modal-content { padding: 14px; }
-    .saved-ayah-img { max-height: 120px; }
-    .saved-ayahs-modal li { font-size: 0.95em; }
+/* Audio Player inside card */
+.card-audio {
+    width: 100%;
+    height: 36px;
+    border-radius: 12px;
+    filter: invert(1) hue-rotate(90deg) brightness(1.3);
+    /* Make standard audio picker look match green theme */
+}
+
+/* Custom Dropdown in Modal (Overriding global for modal-specific sizing if needed) */
+#filter-dropdown {
+    min-width: 180px;
+}
+
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 20px;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    #filter-dropdown {
+        flex: 1;
+    }
 }

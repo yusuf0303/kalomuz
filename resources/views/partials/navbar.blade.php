@@ -6,37 +6,58 @@
                 <span>KalomUz📖</span>
             </a>
         </div>
-        <button class="hamburger" id="hamburger">&#9776;</button>
+        <button class="hamburger" id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </button>
         <nav class="nav-links" id="nav-menu">
-            <a href="/" class="active">Bosh Sahifa</a>
-            <div class="dropdown">
-                <button type="button" class="btn btn-ctgr btn-light dropdown-toggle" data-bs-toggle="dropdown">
-                    Bo'limlar
-                </button>
-                <ul class="dropdown-menu">
-{{--                    <li><h5 class="dropdown-header">Suralar</h5></li>--}}
-{{--                    <li><a class="dropdown-item" href="/#about">Sayt haqida</a></li>--}}
-{{--                    <li><a class="dropdown-item" href="/#services">Xizmatlar</a></li>--}}
-                    <li><h5 class="dropdown-header">Oyatlar</h5></li>
-                    <li><a class="dropdown-item" href="/sajda-oyatlari">Sajda Oyatlari</a></li>
-                    <li><a class="dropdown-item" href="/quiz">Qur'an Quiz</a></li>
-                </ul>
-            </div>
-            <a href="/#contact" class="btn-contact">ALOQA</a>
+            <a href="/" class="{{ Request::is('/') ? 'active' : '' }}"><i class="fas fa-home me-1"></i> Bosh Sahifa</a>
+            <a href="{{ route('quran.index') }}" class="{{ Request::is('surahs*') || Request::is('surah*') ? 'active' : '' }}"><i class="fas fa-book-quran me-1"></i> Suralar</a>
+            <a href="{{ route('quran.sajda') }}" class="{{ Request::is('sajda-ayahs-list*') ? 'active' : '' }}"><i class="fas fa-star-and-crescent me-1"></i> Sajda Oyatlari</a>
+            <a href="{{ route('prayer.index') }}" class="{{ Request::is('prayer-times*') ? 'active' : '' }}"><i class="fas fa-clock me-1"></i> Namoz Vaqtlari</a>
+            <a href="{{ route('mosques.index') }}" class="{{ Request::is('mosques*') ? 'active' : '' }}"><i class="fas fa-mosque me-1"></i> Masjidlar</a>
+            <a href="{{ route('contest.index') }}" class="{{ Request::is('contest*') ? 'active' : '' }}"><i class="fas fa-moon me-1"></i> Konkurs</a>
+            <a href="{{ route('quran.quiz') }}" class="{{ Request::is('quiz*') ? 'active' : '' }}"><i class="fas fa-question-circle me-1"></i> Quiz</a>
+            <a href="/#contact"><i class="fas fa-envelope me-1"></i> ALOQA</a>
             @auth
+                @php
+                    $unreadNotifications = Auth::user()->notifications()->whereNull('read_at')->count();
+                    $unreadPeerMessages = \App\Models\Message::where('receiver_id', Auth::id())->where('is_read', false)->count();
+                    $unreadAdminMessages = Auth::user()->userMessages()->whereNull('read_at')->count();
+                    $totalUnread = $unreadNotifications + $unreadPeerMessages + $unreadAdminMessages;
+                @endphp
                 <div class="user-profile-dropdown" id="userProfileDropdown">
                     <div class="user-profile-name" id="userProfileBtn">
                         <i class="fa fa-user fa-regular"></i>
                         <span class="username font-bold text-blue-600">
-                            {{ Auth::user()->name ?? '' }} {{ Auth::user()->last_name ?? '' }}
+                            {{ Auth::user()->name ?? '' }}
                         </span>
+                        @if($totalUnread > 0)
+                            <span class="badge rounded-pill bg-danger ms-1" style="font-size: 0.6rem;">{{ $totalUnread }}</span>
+                        @endif
                         <i class="fa fa-chevron-down ml-1"></i>
                     </div>
                     <div class="profile-menu" id="profileMenu">
                         <a href="{{ route('profile') }}"><i class="fa fa-id-card mr-1"></i> Mening profilim</a>
-                        <a href="#" onclick="document.getElementById('saved_list').click(); return false;">
+                        
+                        <a href="{{ route('saved.ayahs') }}">
                             <i class="fa fa-bookmark mr-1"></i> Saqlangan oyatlar
                         </a>
+
+                        <a href="{{ route('notifications.index') }}" class="d-flex justify-content-between align-items-center">
+                            <span><i class="fa fa-bell mr-1"></i> Bildirishnomalar</span>
+                            @if($unreadNotifications > 0)
+                                <span class="badge rounded-pill bg-warning text-dark">{{ $unreadNotifications }}</span>
+                            @endif
+                        </a>
+
+                        <a href="{{ route('messages.index') }}" class="d-flex justify-content-between align-items-center">
+                            <span><i class="fa fa-envelope mr-1"></i> Xabarlar</span>
+                            @php $totalMsgUnread = $unreadPeerMessages + $unreadAdminMessages; @endphp
+                            @if($totalMsgUnread > 0)
+                                <span class="badge rounded-pill bg-info text-white">{{ $totalMsgUnread }}</span>
+                            @endif
+                        </a>
+
                         <hr>
                         <a href="#" class="logout-btn"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

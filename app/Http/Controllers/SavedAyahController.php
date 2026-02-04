@@ -10,7 +10,8 @@ class SavedAyahController extends Controller
 {
     public function index()
     {
-        return Auth::user()->savedAyahs()->get();
+        $savedAyahs = Auth::user()->savedAyahs()->orderBy('created_at', 'DESC')->get();
+        return view('quran.saved_ayahs', compact('savedAyahs'));
     }
 
     public function store(Request $request)
@@ -24,17 +25,14 @@ class SavedAyahController extends Controller
             'audio' => 'nullable|string'
         ]);
 
-        $data['user_id'] = Auth::id();
-
-        // Bitta oyat faqat bir marta saqlansin
-        $exists = SavedAyah::where('user_id', $data['user_id'])
-            ->where('surah', $data['surah'])
-            ->where('ayah', $data['ayah'])
-            ->first();
-
-        if (!$exists) {
-            SavedAyah::create($data);
-        }
+        SavedAyah::firstOrCreate(
+            [
+                'user_id' => Auth::id(),
+                'surah' => $data['surah'],
+                'ayah' => $data['ayah']
+            ],
+            $data
+        );
 
         return response()->json(['status' => 'ok']);
     }
